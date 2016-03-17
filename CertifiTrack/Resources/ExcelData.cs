@@ -32,32 +32,31 @@ namespace CertifiTrack
 
             for (var row = 3; row <= worksheet.Dimension.End.Row; row++)
             {
-                if (worksheet.Cells[row, 1].Value != null)
-                {
-                    DeathCertificate cert = new DeathCertificate(
-                        Convert.ToDouble(worksheet.Cells[row, 1].Value),
-                        worksheet.Cells[row, 2].Value,
-                        worksheet.Cells[row, 3].Value,
-                        worksheet.Cells[row, 4].Value,
-                        worksheet.Cells[row, 5].Value,
-                        worksheet.Cells[row, 6].Value,
-                        worksheet.Cells[row, 7].Value,
-                        worksheet.Cells[row, 8].Value,
-                        worksheet.Cells[row, 9].Value,
-                        worksheet.Cells[row, 10].Value,
-                        worksheet.Cells[row, 11].Value,
-                        worksheet.Cells[row, 12].Value
-                    );
+	            if (worksheet.Cells[row, 1].Value == null) continue;
 
-                    if ((cert._Notes != null) && ((cert._Notes.ToString().Contains("Done")) || (cert._Notes.ToString().Contains("Out of State")) || (cert._Notes.ToString().Contains("Rental")) || (cert._Notes.ToString().Contains("No DC"))))
-                    {
+	            DeathCertificate cert = new DeathCertificate(
+		            Convert.ToDouble(worksheet.Cells[row, 1].Value),
+			            worksheet.Cells[row, 2].Value,
+			            worksheet.Cells[row, 3].Value,
+			            worksheet.Cells[row, 4].Value,
+			            worksheet.Cells[row, 5].Value,
+			            worksheet.Cells[row, 6].Value,
+			            worksheet.Cells[row, 7].Value,
+			            worksheet.Cells[row, 8].Value,
+			            worksheet.Cells[row, 9].Value,
+			            worksheet.Cells[row, 10].Value,
+			            worksheet.Cells[row, 11].Value,
+			            worksheet.Cells[row, 12].Value
+		            );
+
+	            if ((cert._Notes != null) && ((cert._Notes.ToString().Contains("Done")) || (cert._Notes.ToString().Contains("Out of State")) || (cert._Notes.ToString().Contains("Rental")) || (cert._Notes.ToString().Contains("No DC"))))
+	            {
                             
-                    }
-                    else
-                    {
-                        certList.Add(cert);
-                    }
-                }
+	            }
+	            else
+	            {
+		            certList.Add(cert);
+	            }
             }
 
             package.Dispose();
@@ -75,26 +74,8 @@ namespace CertifiTrack
                 text += " ";
             }
 
-            string approved;
-            string dcType;
-
-            if (isApproved)
-            {
-                approved = "Y";
-            }
-            else
-            {
-                approved = "N";
-            }
-
-            if (isElectronic)
-            {
-                dcType = "E";
-            }
-            else
-            {
-                dcType = "P";
-            }
+	        string approved = isApproved ? "Y" : "N";
+            string dcType = isElectronic ? "E" : "P";
 
             text = text.Insert(0, $"{date}");
             text = text.Insert(13, $"{name}");

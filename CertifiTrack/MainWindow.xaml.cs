@@ -81,14 +81,7 @@ namespace CertifiTrack
                         break;
                 }
 
-                if (cert._DateOfDeath.AddDays(21) <= DateTime.Now)
-                {
-                    bgColor = Colors.Yellow;
-                }
-                else
-                {
-                    bgColor = Colors.WhiteSmoke;
-                }
+                bgColor = cert._DateOfDeath.AddDays(21) <= DateTime.Now ? Colors.Yellow : Colors.WhiteSmoke;
 
                 panel.Children.Add(new TextBlock
                 {
