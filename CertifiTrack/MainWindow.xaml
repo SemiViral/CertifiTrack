@@ -18,12 +18,12 @@
 				   WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
 
     <StackPanel>
-	    <DockPanel Margin="0,0,0,0" DataContext="{StaticResource MainViewModel}">
+	    <DockPanel DataContext="{StaticResource MainViewModel}">
 		    <TextBlock x:Name="TextBlock" Margin="0" TextWrapping="Wrap" Text="Death Certificate Status" FontWeight="Bold"
 				       FontSize="18.667" Foreground="White" TextAlignment="Center" DockPanel.Dock="Top"
 				       Padding="0,6,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-		    <UniformGrid Columns="5" Margin="0" DockPanel.Dock="Top">
+		    <UniformGrid Columns="5" Margin="-150,20,0,0" DockPanel.Dock="Top">
 			    <TextBlock FontFamily="Courier New" FontSize="24" FontWeight="Bold" Text="DOD" VerticalAlignment="Top"
 					       HorizontalAlignment="Center" />
 			    <TextBlock Text="Name" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold"

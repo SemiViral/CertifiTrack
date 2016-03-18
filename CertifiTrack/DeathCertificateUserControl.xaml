@@ -5,8 +5,8 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:local="clr-namespace:CertifiTrack"
 			 xmlns:model="clr-namespace:CertifiTrack.Model"
-			 mc:Ignorable="d">
-	<UniformGrid Margin="0" Rows="1">
+			 mc:Ignorable="d" IsHitTestVisible="False">
+	<UniformGrid Margin="-150,0,10,0" Rows="1" IsHitTestVisible="False">
 		<UniformGrid.Style>
 			<Style TargetType="UniformGrid">
 				<Setter Property="Background" Value="WhiteSmoke" />
@@ -19,23 +19,23 @@
 		</UniformGrid.Style>
 
 		<TextBlock x:Name="Date" Text="{Binding RepresentableDate, FallbackValue=Date}" Margin="0" TextWrapping="Wrap"
-				   VerticalAlignment="Center" Style="{DynamicResource TextBlockForeground}" HorizontalAlignment="Center" />
+				   VerticalAlignment="Center" Style="{DynamicResource TextBlockForeground}" HorizontalAlignment="Center" FontSize="16" FontFamily="Courier New" />
 		<DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 			<TextBlock x:Name="PatientName" Text="{Binding Name, FallbackValue=Name}" Margin="0" TextWrapping="Wrap"
 					   VerticalAlignment="Top" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}"
-					   DockPanel.Dock="Top" />
+					   DockPanel.Dock="Top" FontSize="16" FontWeight="Bold"  FontFamily="Courier New"/>
 			<TextBlock x:Name="Doctor" Text="{Binding Doctor, FallbackValue=Doctor}" Margin="0" TextWrapping="Wrap"
-					   VerticalAlignment="Top" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}" />
+					   VerticalAlignment="Top" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}" FontSize="16" FontStyle="Italic"  FontFamily="Courier New"/>
 		</DockPanel>
         
 		<TextBlock x:Name="DcType" Text="{Binding DcType, FallbackValue=DCType}" Margin="0" TextWrapping="Wrap"
-				   VerticalAlignment="Center" Style="{DynamicResource TextBlockForeground}" HorizontalAlignment="Center" />
+				   VerticalAlignment="Center" Style="{DynamicResource TextBlockForeground}" HorizontalAlignment="Center" FontSize="16"  FontFamily="Courier New"/>
         
 		<CheckBox x:Name="Approved" IsChecked="{Binding IsApproved}" IsHitTestVisible="False" Margin="0"
-				  VerticalAlignment="Center" HorizontalAlignment="Center" />
+				  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"  FontFamily="Courier New"/>
 
 		<TextBlock x:Name="Notes" Text="{Binding Notes, FallbackValue=Notes}" Margin="0" TextWrapping="Wrap"
-				   VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}" />        
+				   VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}" FontSize="16"  FontFamily="Courier New"/>        
 	</UniformGrid>
 
 	<UserControl.Resources>
@@ -54,4 +54,7 @@
 			</Style.Triggers>
 		</Style>
 	</UserControl.Resources>
+    <UserControl.Effect>
+        <DropShadowEffect BlurRadius="1" ShadowDepth="2"/>
+    </UserControl.Effect>
 </UserControl>
