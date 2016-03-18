@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using CertifiTrack.Model;
 using OfficeOpenXml;
 
 namespace CertifiTrack.Resources {

@@ -1,12 +1,15 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
+using CertifiTrack.Model;
 using CertifiTrack.Properties;
 using CertifiTrack.Resources;
 using Microsoft.Win32;
 
 namespace CertifiTrack.ViewModel {
     internal class MainViewModel {
+        private readonly bool _loaded;
+
         public MainViewModel() {
             if (_loaded ||
                 (bool)
@@ -21,7 +24,6 @@ namespace CertifiTrack.ViewModel {
             }
         }
 
-        private readonly bool _loaded;
         public ObservableCollection<DeathCertificate> Certificates { get; } = new ObservableCollection<DeathCertificate>();
         public string FilePath { get; set; }
 
