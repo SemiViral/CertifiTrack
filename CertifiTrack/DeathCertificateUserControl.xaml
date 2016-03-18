@@ -27,12 +27,15 @@
 			<TextBlock x:Name="Doctor" Text="{Binding Doctor, FallbackValue=Doctor}" Margin="0" TextWrapping="Wrap"
 					   VerticalAlignment="Top" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}" />
 		</DockPanel>
-		<TextBlock x:Name="Notes" Text="{Binding Notes, FallbackValue=Notes}" Margin="0" TextWrapping="Wrap"
-				   VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}" />
-		<CheckBox x:Name="Approved" IsChecked="{Binding IsApproved}" IsHitTestVisible="False" Margin="0"
-				  VerticalAlignment="Center" HorizontalAlignment="Center" />
+        
 		<TextBlock x:Name="DcType" Text="{Binding DcType, FallbackValue=DCType}" Margin="0" TextWrapping="Wrap"
 				   VerticalAlignment="Center" Style="{DynamicResource TextBlockForeground}" HorizontalAlignment="Center" />
+        
+		<CheckBox x:Name="Approved" IsChecked="{Binding IsApproved}" IsHitTestVisible="False" Margin="0"
+				  VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+		<TextBlock x:Name="Notes" Text="{Binding Notes, FallbackValue=Notes}" Margin="0" TextWrapping="Wrap"
+				   VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}" />        
 	</UniformGrid>
 
 	<UserControl.Resources>
@@ -40,13 +43,13 @@
 			<Setter Property="Foreground" Value="Black" />
 			<Style.Triggers>
 				<DataTrigger Binding="{Binding LocationSwitch}" Value="0">
-					<Setter Property="Foreground" Value="Green" />
-				</DataTrigger>
-				<DataTrigger Binding="{Binding LocationSwitch}" Value="1">
 					<Setter Property="Foreground" Value="Red" />
 				</DataTrigger>
+				<DataTrigger Binding="{Binding LocationSwitch}" Value="1">
+					<Setter Property="Foreground" Value="Green" />
+				</DataTrigger>
 				<DataTrigger Binding="{Binding LocationSwitch}" Value="2">
-					<Setter Property="Foreground" Value="Blue" />
+					<Setter Property="Foreground" Value="Black" />
 				</DataTrigger>
 			</Style.Triggers>
 		</Style>
