@@ -99,7 +99,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Resources\ExcelData.cs" />
+    <Compile Include="DeathCertificateUserControl.xaml.cs">
+      <DependentUpon>DeathCertificateUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ExcelData.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Page Include="DeathCertificateUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -108,7 +116,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DeathCertificate.cs" />
+    <Compile Include="Model\DeathCertificate.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
