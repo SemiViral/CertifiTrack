@@ -1,109 +1,110 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace CertifiTrack
 {
-    class DeathCertificate
+    public class DeathCertificate
     {
-        public DateTime _DateOfDeath;
-        public string _FuneralNumber;
-        public string _Name;
-        public string _Location;
-        public string _Doctor;
-        public bool _isApproved;
-        public bool _isElectronic;
-        public bool _toDoctor;
-        public bool _fromDoctor;
-        public bool _toState;
-        public bool _fromState;
-        public string _Notes;
+        public DateTime DateOfDeath { get; }
+        public string RepresentableDate { get; }
+        public string FuneralNumber { get; }
+        public string Name { get; }
+        public string Location { get; }
+        public string Doctor { get; }
+        public bool IsApproved { get; }
+        public bool IsElectronic { get; }
+        public bool ToDoctor { get; }
+        public bool FromDoctor { get; }
+        public bool ToState { get; }
+        public bool FromState { get; }
+        public string Notes { get; }
 
 
         public DeathCertificate(double dateOfDeath, object funeralNum, object name, object location, object doctor, object isElectronic, object isApproved, object toDr, object fromDr, object toState, object fromState, object notes)
         {
-            _DateOfDeath = DateTime.FromOADate(dateOfDeath);
+            DateOfDeath = DateTime.FromOADate(dateOfDeath);
+            RepresentableDate = DateOfDeath.ToShortDateString();
 
             if (funeralNum != null)
             {
-                _FuneralNumber = funeralNum.ToString();
+                FuneralNumber = funeralNum.ToString();
             }
             
             if (name != null)
             {
-                _Name = name.ToString();
+                Name = name.ToString();
             }
             
             if (location != null)
             {
-                _Location = location.ToString();
+                Location = location.ToString();
             }
             
             if (doctor != null)
             {
-                _Doctor = doctor.ToString();
+                Doctor = doctor.ToString();
             }
 
             if ((isElectronic != null) && (isElectronic.ToString().ToUpper() == "E"))
             {
-                _isElectronic = true;
+                IsElectronic = true;
             }
             else
             {
-                _isElectronic = false;
+                IsElectronic = false;
             }
             
             if ((isApproved != null) && (isApproved.ToString().ToUpper() == "Y"))
             {
-                _isApproved = true;
+                IsApproved = true;
             }
             else
             {
-                _isApproved = false;
+                IsApproved = false;
             }
 
             if ((toDr != null) && (toDr.ToString().ToUpper() == "X"))
             {
-                _toDoctor = true;
+                ToDoctor = true;
             }
             else
             {
-                _toDoctor = false;
+                ToDoctor = false;
             }
 
             if ((fromDr != null) && (fromDr.ToString().ToUpper() == "X"))
             {
-                _fromDoctor = true;
+                FromDoctor = true;
             }
             else
             {
-                _fromDoctor = false;
+                FromDoctor = false;
             }
 
             if ((toState != null) && (toState.ToString().ToUpper() == "X"))
             {
-                _toState = true;
+                ToState = true;
             }
             else
             {
-                _toState = false;
+                ToState = false;
             }
 
             if ((fromState != null) && (fromState.ToString().ToUpper() == "X"))
             {
-                _fromState = true;
+                FromState = true;
             }
             else
             {
-                _fromState = false;
+                FromState = false;
             }
 
             if (notes != null)
             {
-                _Notes = notes.ToString();
+                Notes = notes.ToString();
             }
+
+            Debug.WriteLine($"{RepresentableDate} Certificate added of name {Name}", "Information");
         }
     }
 }
