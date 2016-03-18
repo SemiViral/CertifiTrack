@@ -10,38 +10,34 @@
 				   BorderThickness="1"
 				   mc:Ignorable="d"
 				   Title="Death Certificate Status Updates" Height="550" Width="900"
-				   TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-				   Background="#FF37474F"
+				   ShowMaxRestoreButton="False"
+				   Background="{x:Null}"
 				   TextElement.FontWeight="Medium"
 				   TextElement.FontSize="14"
 				   FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
 				   WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
-	<DockPanel Margin="0,0,0,0" DataContext="{StaticResource MainViewModel}">
-		<TextBlock x:Name="TextBlock" Margin="0" TextWrapping="Wrap" Text="Death Certificate Status" FontWeight="Bold"
-				   FontSize="18.667" Foreground="White" TextAlignment="Center" DockPanel.Dock="Top"
-				   Padding="0,6,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+	<DockPanel Margin="0,0,0,0" DataContext="{StaticResource MainViewModel}" Background="White">
+		<TextBlock x:Name="TextBlock" Margin="0" TextWrapping="Wrap" Text="Death Certificate Status" FontWeight="Normal"
+				   FontSize="18.667" TextAlignment="Center" DockPanel.Dock="Top"
+				   Padding="0,6,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"
+				   Style="{StaticResource TextBlockHeader}" />
 
 		<UniformGrid Columns="5" Margin="10" DockPanel.Dock="Top">
-			<TextBlock FontFamily="Courier New" FontSize="24" FontWeight="Bold" Text="DOD" VerticalAlignment="Top"
-					   HorizontalAlignment="Center" />
-			<TextBlock Text="Name" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold"
-					   FontFamily="Courier New" FontSize="24" />
-			<TextBlock Text="Status" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold"
-					   FontFamily="Courier New" FontSize="24" />
-			<TextBlock Text="Approved" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"
-					   FontFamily="Courier New" FontSize="24" />
-			<TextBlock Text="DC Type" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"
-					   FontFamily="Courier New" FontSize="24" />
+			<TextBlock FontFamily="Roboto" FontSize="24" FontWeight="Normal" Text="DOD" VerticalAlignment="Top"
+					   HorizontalAlignment="Center" Style="{StaticResource TextBlockHeader}" />
+			<TextBlock Text="Name" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Normal"
+					   FontFamily="Roboto" FontSize="24" Style="{StaticResource TextBlockHeader}" />
+			<TextBlock Text="DC Type" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Normal"
+					   FontFamily="Roboto" FontSize="24" Style="{StaticResource TextBlockHeader}" />
+			<TextBlock Text="Approved" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Normal"
+					   FontFamily="Roboto" FontSize="24" Style="{StaticResource TextBlockHeader}" />
+			<TextBlock Text="Status" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Normal"
+					   FontFamily="Roboto" FontSize="24" Style="{StaticResource TextBlockHeader}" />
 		</UniformGrid>
 
 		<ListBox x:Name="ListBoxCertificate" ItemsSource="{Binding Certificates}" Margin="10,5,10,0" Background="{x:Null}"
-				 DockPanel.Dock="Top" BorderBrush="{x:Null}" Foreground="{x:Null}">
-			<ListBox.ItemContainerStyle>
-				<Style TargetType="ListBoxItem">
-					<Setter Property="HorizontalContentAlignment" Value="Stretch" />
-				</Style>
-			</ListBox.ItemContainerStyle>
-		</ListBox>
+				 DockPanel.Dock="Top" BorderBrush="{x:Null}" Foreground="{x:Null}"
+				 ItemContainerStyle="{StaticResource ListBoxItemNoHighlighting}" />
 
 		<StatusBar x:Name="Status" Margin="0" Background="#FFD8D8D8" DockPanel.Dock="Top" VerticalAlignment="Bottom">
 			<TextBlock x:Name="Filepath" Text="{Binding FilePath}" TextWrapping="Wrap" Foreground="#DD000000" Margin="0"

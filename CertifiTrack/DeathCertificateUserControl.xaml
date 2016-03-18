@@ -9,44 +9,52 @@
 	<UniformGrid Margin="0" Rows="1">
 		<UniformGrid.Style>
 			<Style TargetType="UniformGrid">
-				<Setter Property="Background" Value="WhiteSmoke" />
+				<Setter Property="Background" Value="{x:Null}" />
 				<Style.Triggers>
 					<DataTrigger Binding="{Binding IsOld}" Value="True">
-						<Setter Property="Background" Value="Yellow" />
+						<Setter Property="Background" Value="{StaticResource AccentColorBrush4}" />
 					</DataTrigger>
 				</Style.Triggers>
 			</Style>
 		</UniformGrid.Style>
 
-		<TextBlock x:Name="Date" Text="{Binding RepresentableDate, FallbackValue=Date}" Margin="0" TextWrapping="Wrap"
-				   VerticalAlignment="Center" Style="{DynamicResource TextBlockForeground}" HorizontalAlignment="Center" />
+		<TextBlock x:Name="Date" Text="{Binding RepresentableDate, FallbackValue=Date}"
+				   Style="{DynamicResource TextBlockForeground}" />
 		<DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-			<TextBlock x:Name="PatientName" Text="{Binding Name, FallbackValue=Name}" Margin="0" TextWrapping="Wrap"
-					   VerticalAlignment="Top" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}"
-					   DockPanel.Dock="Top" />
-			<TextBlock x:Name="Doctor" Text="{Binding Doctor, FallbackValue=Doctor}" Margin="0" TextWrapping="Wrap"
-					   VerticalAlignment="Top" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}" />
+			<TextBlock x:Name="PatientName" Text="{Binding Name, FallbackValue=Name}" VerticalAlignment="Top"
+					   Style="{DynamicResource TextBlockForeground}" DockPanel.Dock="Top" />
+			<TextBlock x:Name="Doctor" Text="{Binding Doctor, FallbackValue=Doctor}" VerticalAlignment="Top"
+					   Style="{DynamicResource TextBlockForeground}" />
 		</DockPanel>
-		<TextBlock x:Name="Notes" Text="{Binding Notes, FallbackValue=Notes}" Margin="0" TextWrapping="Wrap"
-				   VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource TextBlockForeground}" />
+		<TextBlock x:Name="DcType" Text="{Binding DcType, FallbackValue=DCType}"
+				   Style="{DynamicResource TextBlockForeground}" />
 		<CheckBox x:Name="Approved" IsChecked="{Binding IsApproved}" IsHitTestVisible="False" Margin="0"
 				  VerticalAlignment="Center" HorizontalAlignment="Center" />
-		<TextBlock x:Name="DcType" Text="{Binding DcType, FallbackValue=DCType}" Margin="0" TextWrapping="Wrap"
-				   VerticalAlignment="Center" Style="{DynamicResource TextBlockForeground}" HorizontalAlignment="Center" />
+		<TextBlock x:Name="Notes" Text="{Binding Notes, FallbackValue=Notes}" Style="{DynamicResource TextBlockForeground}" />
 	</UniformGrid>
 
 	<UserControl.Resources>
 		<Style x:Key="TextBlockForeground" TargetType="{x:Type TextBlock}">
-			<Setter Property="Foreground" Value="Black" />
+			<Setter Property="Effect">
+				<Setter.Value>
+					<DropShadowEffect ShadowDepth="0" Color="Black" Opacity="0.3" BlurRadius="5" />
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Foreground" Value="{StaticResource BlackBrush}" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="HorizontalAlignment" Value="Center" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="Margin" Value="0" />
 			<Style.Triggers>
 				<DataTrigger Binding="{Binding LocationSwitch}" Value="0">
-					<Setter Property="Foreground" Value="Green" />
+					<Setter Property="Foreground" Value="#ee1111" />
 				</DataTrigger>
 				<DataTrigger Binding="{Binding LocationSwitch}" Value="1">
-					<Setter Property="Foreground" Value="Red" />
+					<Setter Property="Foreground" Value="#1e7145" />
 				</DataTrigger>
 				<DataTrigger Binding="{Binding LocationSwitch}" Value="2">
-					<Setter Property="Foreground" Value="Blue" />
+					<Setter Property="Foreground" Value="#1d1d1d" />
 				</DataTrigger>
 			</Style.Triggers>
 		</Style>

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using CertifiTrack.Model;
 using OfficeOpenXml;
 
-namespace CertifiTrack.Resources {
+namespace CertifiTrack.Model {
     internal class ExcelData {
         public static List<DeathCertificate> GetCertificates(string filePath) {
             var certList = new List<DeathCertificate>();

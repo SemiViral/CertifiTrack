@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Windows;
 using CertifiTrack.Model;
 using CertifiTrack.Properties;
-using CertifiTrack.Resources;
 using Microsoft.Win32;
 
 namespace CertifiTrack.ViewModel {
