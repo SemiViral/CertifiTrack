@@ -13,7 +13,7 @@
 				   ShowMaxRestoreButton="False"
 				   Background="{x:Null}"
 				   TextElement.FontWeight="Medium"
-				   TextElement.FontSize="14"
+				   TextElement.FontSize="15"
 				   FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
 				   WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
 	<DockPanel Margin="0,0,0,0" DataContext="{StaticResource MainViewModel}" Background="White">
@@ -35,9 +35,11 @@
 					   FontFamily="Roboto" FontSize="24" Style="{StaticResource TextBlockHeader}" />
 		</UniformGrid>
 
-		<ListBox x:Name="ListBoxCertificate" ItemsSource="{Binding Certificates}" Margin="10,5,10,0" Background="{x:Null}"
+		<ListBox x:Name="ListBoxCertificate" ItemsSource="{Binding DeathCertificateView.View}" Margin="10,5,10,0"
+				 Background="{x:Null}"
 				 DockPanel.Dock="Top" BorderBrush="{x:Null}" Foreground="{x:Null}"
-				 ItemContainerStyle="{StaticResource ListBoxItemNoHighlighting}" />
+				 ItemContainerStyle="{StaticResource ListBoxItemNoHighlighting}"
+				 ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
 
 		<StatusBar x:Name="Status" Margin="0" Background="#FFD8D8D8" DockPanel.Dock="Top" VerticalAlignment="Bottom">
 			<TextBlock x:Name="Filepath" Text="{Binding FilePath}" TextWrapping="Wrap" Foreground="#DD000000" Margin="0"

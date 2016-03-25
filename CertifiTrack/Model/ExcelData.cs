@@ -1,11 +1,15 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using OfficeOpenXml;
 
+#endregion
+
 namespace CertifiTrack.Model {
     internal class ExcelData {
-        public static List<DeathCertificate> GetCertificates(string filePath) {
+        public static IEnumerable<DeathCertificate> GetCertificates(string filePath) {
             var certList = new List<DeathCertificate>();
 
             ExcelPackage package = new ExcelPackage();
@@ -39,34 +43,32 @@ namespace CertifiTrack.Model {
                 if ((cert.Notes == null) ||
                     (!cert.Notes.Contains("Done") && !cert.Notes.Contains("Out of State") && !cert.Notes.Contains("Rental") &&
                      !cert.Notes.Contains("No DC")))
-                    certList.Add(cert);
+                    yield return cert;
             }
 
             package.Dispose();
-
-            return certList;
         }
 
-        public static string FormatDisplayString(string date, string name, string status, bool isApproved, bool isElectronic,
-            string doctor) {
-            string text = "";
+        //public static string FormatDisplayString(string date, string name, string status, bool isApproved, bool isElectronic,
+        //    string doctor) {
+        //    string text = "";
 
-            for (int i = 0; i < 150; i++) {
-                text += " ";
-            }
+        //    for (int i = 0; i < 150; i++) {
+        //        text += " ";
+        //    }
 
-            string approved = isApproved ? "Y" : "N";
-            string dcType = isElectronic ? "E" : "P";
+        //    string approved = isApproved ? "Y" : "N";
+        //    string dcType = isElectronic ? "E" : "P";
 
-            text = text.Insert(0, $"{date}");
-            text = text.Insert(13, $"{name}");
-            text = text.Insert(50, $"{status}");
-            text = text.Insert(80, $"{approved}");
-            text = text.Insert(90, $"{dcType}");
-            text = text.Insert(95, "\n");
-            text = text.Insert(109, $"{doctor}");
+        //    text = text.Insert(0, $"{date}");
+        //    text = text.Insert(13, $"{name}");
+        //    text = text.Insert(50, $"{status}");
+        //    text = text.Insert(80, $"{approved}");
+        //    text = text.Insert(90, $"{dcType}");
+        //    text = text.Insert(95, "\n");
+        //    text = text.Insert(109, $"{doctor}");
 
-            return text;
-        }
+        //    return text;
+        //}
     }
 }

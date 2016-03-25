@@ -1,5 +1,9 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Diagnostics;
+
+#endregion
 
 namespace CertifiTrack.Model {
     public class DeathCertificate {
@@ -17,8 +21,8 @@ namespace CertifiTrack.Model {
 
             if (doctor != null) Doctor = doctor.ToString();
 
-            if ((isElectronic != null) &&
-                (isElectronic.ToString().ToUpper() == "E")) {
+            if (isElectronic != null &&
+                isElectronic.ToString().ToUpper().Equals("E")) {
                 IsElectronic = true;
                 DcType = "Electronic";
             } else {
@@ -27,23 +31,23 @@ namespace CertifiTrack.Model {
             }
 
             if ((isApproved != null) &&
-                (isApproved.ToString().ToUpper() == "Y")) IsApproved = true;
+                isApproved.ToString().ToUpper().Equals("Y")) IsApproved = true;
             else IsApproved = false;
 
-            if ((toDr != null) &&
-                (toDr.ToString().ToUpper() == "X")) ToDoctor = true;
+            if (toDr != null &&
+                toDr.ToString().ToUpper().Equals("X")) ToDoctor = true;
             else ToDoctor = false;
 
-            if ((fromDr != null) &&
-                (fromDr.ToString().ToUpper() == "X")) FromDoctor = true;
+            if (fromDr != null &&
+                fromDr.ToString().ToUpper().Equals("X")) FromDoctor = true;
             else FromDoctor = false;
 
-            if ((toState != null) &&
-                (toState.ToString().ToUpper() == "X")) ToState = true;
+            if (toState != null &&
+                toState.ToString().ToUpper().Equals("X")) ToState = true;
             else ToState = false;
 
-            if ((fromState != null) &&
-                (fromState.ToString().ToUpper() == "X")) FromState = true;
+            if (fromState != null &&
+                fromState.ToString().ToUpper().Equals("X")) FromState = true;
             else FromState = false;
 
             IsOld = DateOfDeath.AddDays(21) <= DateTime.Now;
@@ -57,8 +61,6 @@ namespace CertifiTrack.Model {
                     break;
                 case "W":
                     LocationSwitch = 2;
-                    break;
-                default:
                     break;
             }
 
